@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Circle?>
+
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <TitledPane animated="false" prefHeight="515.0" prefWidth="1009.0" text="Zachary Desroches">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="490.0" prefWidth="1019.0">
+               <children>
+                  <ToolBar layoutY="-6.0" prefHeight="40.0" prefWidth="1051.0">
+                    <items>
+                      <Button fx:id="btnAPlus" mnemonicParsing="false" onAction="#btnAPlusActionEvent" text="A+" />
+                        <Button fx:id="btnAMoins" mnemonicParsing="false" onAction="#btnAMoinsActionEvent" text="A-" />
+                        <Separator orientation="VERTICAL" prefHeight="0.0" prefWidth="0.0" />
+                        <ToggleButton fx:id="tgbNoir" focusTraversable="false" mnemonicParsing="false" onAction="#tgbNoirActionEvent" prefHeight="25.0" prefWidth="31.0" selected="true">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="Couleurs" />
+                           </toggleGroup>
+                           <graphic>
+                              <Circle radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+                           </graphic>
+                        </ToggleButton>
+                        <ToggleButton fx:id="tgbVert" focusTraversable="false" mnemonicParsing="false" onAction="#tgbVertActionEvent" prefHeight="25.0" prefWidth="31.0" toggleGroup="$Couleurs">
+                           <graphic>
+                              <Circle fill="#52ad78" radius="7.0" stroke="#823d3d00" strokeType="INSIDE" />
+                           </graphic></ToggleButton>
+                        <ToggleButton fx:id="tgbRouge" focusTraversable="false" mnemonicParsing="false" onAction="#tgbRougeActionEvent" prefHeight="25.0" prefWidth="31.0" toggleGroup="$Couleurs">
+                           <graphic>
+                              <Circle fill="RED" radius="7.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                           </graphic></ToggleButton>
+                        <ToggleButton fx:id="tgbBleu" focusTraversable="false" mnemonicParsing="false" onAction="#tgbBleuActionEvent" prefHeight="25.0" prefWidth="31.0" toggleGroup="$Couleurs">
+                           <graphic>
+                              <Circle fill="#004f99" radius="7.0" stroke="#8a515100" strokeType="INSIDE" />
+                           </graphic></ToggleButton>
+                        <ToggleButton fx:id="tgbGris" focusTraversable="false" mnemonicParsing="false" onAction="#tgbGrisActionEvent" prefHeight="25.0" prefWidth="31.0" toggleGroup="$Couleurs">
+                           <graphic>
+                              <Circle fill="#7e7e7e" radius="7.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                           </graphic></ToggleButton>
+                        <ToggleButton fx:id="tgbOrange" focusTraversable="false" mnemonicParsing="false" onAction="#tgbOrangeActionEvent" prefHeight="25.0" prefWidth="31.0" toggleGroup="$Couleurs">
+                           <graphic>
+                              <Circle fill="#ec4300" radius="7.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                           </graphic></ToggleButton>
+                        <Separator orientation="VERTICAL" prefHeight="0.0" prefWidth="0.0" />
+                        <ToggleButton fx:id="tgbMaj" mnemonicParsing="false" onAction="#tgbMajActionEvent" text="Mot(s) -&gt; MAJ" />
+                        <Button fx:id="btnInverse" mnemonicParsing="false" onAction="#btnInverseActionEvent" text="Inverser texte" />
+                        <Separator orientation="VERTICAL" prefHeight="0.0" prefWidth="0.0" />
+                        <Pane prefHeight="0.0" prefWidth="141.0" />
+                        <CheckBox fx:id="chbDoublons" mnemonicParsing="false" onAction="#chbDoublonsActionEvent" text="Permettre doublons" />
+                    </items>
+                  </ToolBar>
+                  <TextArea fx:id="txaTexte" layoutX="7.0" layoutY="51.0" prefHeight="411.0" prefWidth="480.0" />
+                  <Label layoutX="7.0" layoutY="34.0" text="Texte" />
+                  <Label layoutX="498.0" layoutY="34.0" text="Nombres entiers" />
+                  <TextArea fx:id="txaNbEntiers" disable="true" layoutX="498.0" layoutY="51.0" prefHeight="412.0" prefWidth="136.0" />
+                  <TextArea fx:id="txaMots" disable="true" layoutX="645.0" layoutY="51.0" prefHeight="412.0" prefWidth="162.0" />
+                  <Label layoutX="645.0" layoutY="34.0" text="Mots" />
+                  <Label layoutX="813.0" layoutY="51.0" text="Tri des nombres" underline="true" />
+                  <RadioButton fx:id="radAscendant" layoutX="812.0" layoutY="75.0" mnemonicParsing="false" onAction="#radAscendantActionEvent" selected="true" text="Ascendant">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="Tri" />
+                     </toggleGroup></RadioButton>
+                  <RadioButton fx:id="radDescendant" layoutX="812.0" layoutY="100.0" mnemonicParsing="false" onAction="#radDescendantActionEvent" text="Descendant" toggleGroup="$Tri" />
+                  <Button fx:id="btnEntiersPlus" layoutX="498.0" layoutY="464.0" mnemonicParsing="false" onAction="#btnEntiersPlusActionEvent" prefHeight="25.0" prefWidth="25.0" text="+" />
+                  <Button fx:id="btnEntiersMoins" layoutX="523.0" layoutY="464.0" mnemonicParsing="false" onAction="#btnEntiersMoinsActionEvent" prefHeight="25.0" prefWidth="25.0" text="-" />
+                  <Button fx:id="btnMotsPlus" layoutX="646.0" layoutY="463.0" mnemonicParsing="false" onAction="#btnMotsPlusActionEvent" prefHeight="25.0" prefWidth="25.0" text="+" />
+                  <Button fx:id="btnMotsMoins" layoutX="672.0" layoutY="463.0" mnemonicParsing="false" onAction="#btnMotsMoinsActionEvent" prefHeight="25.0" prefWidth="25.0" text="-" />
+                  <Button fx:id="btnTxtMoins" layoutX="8.0" layoutY="464.0" mnemonicParsing="false" onAction="#btnTxtMoinsActionEvent" prefHeight="25.0" prefWidth="25.0" text="-" />
+                  <Button fx:id="btnTriNb" layoutX="812.0" layoutY="127.0" mnemonicParsing="false" onAction="#btnTriNbActionEvent" prefHeight="25.0" prefWidth="189.0" text="Trier Nombres" />
+                  <Separator layoutX="813.0" layoutY="167.0" prefHeight="0.0" prefWidth="187.0" />
+                  <Label layoutX="813.0" layoutY="181.0" text="Statistiques des mots" underline="true" />
+                  <TextField fx:id="txfMinuscules" alignment="CENTER_RIGHT" layoutX="917.0" layoutY="209.0" prefHeight="25.0" prefWidth="83.0" promptText="0" />
+                  <TextField fx:id="txfMajuscules" alignment="CENTER_RIGHT" layoutX="917.0" layoutY="244.0" prefHeight="25.0" prefWidth="83.0" promptText="0" />
+                  <TextField fx:id="txfLettres" alignment="CENTER_RIGHT" layoutX="917.0" layoutY="279.0" prefHeight="25.0" prefWidth="83.0" promptText="0" />
+                  <TextField fx:id="txfNbEntiers" alignment="CENTER_RIGHT" layoutX="549.0" layoutY="463.0" prefHeight="25.0" prefWidth="85.0" promptText="0 entiers" />
+                  <TextField fx:id="txfMots" alignment="CENTER_RIGHT" layoutX="697.0" layoutY="464.0" prefHeight="25.0" prefWidth="109.0" promptText="0 mots" />
+                  <Label layoutX="812.0" layoutY="213.0" text="Minuscules" />
+                  <Label layoutX="812.0" layoutY="248.0" text="Majuscules" />
+                  <ComboBox fx:id="cmbLettres" layoutX="812.0" layoutY="279.0" onAction="#cmbLettresActionEvent" prefHeight="25.0" prefWidth="97.0" promptText="Lettres" />
+                  <CheckBox fx:id="chbConfirmation" layoutX="814.0" layoutY="439.0" mnemonicParsing="false" onAction="#chbConfirmationAcitonEvent" text="Confirmation de fermeture" />
+                  <Button fx:id="btnQuitter" layoutX="815.0" layoutY="464.0" mnemonicParsing="false" onAction="#btnQuitterActionEvent" prefHeight="25.0" prefWidth="190.0" text="Quitter" />
+                  <ComboBox fx:id="cmbChoixTxt" layoutX="33.0" layoutY="464.0" onAction="#cmbChoixTxtActionEvent" prefHeight="25.0" prefWidth="454.0" promptText="Choix du texte à charger" />
+               </children>
+            </AnchorPane>
+        </content>
+      </TitledPane>
+   </children>
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+   </rowConstraints>
+</GridPane>
